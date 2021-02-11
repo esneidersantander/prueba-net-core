@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CrudNetCore5</title>
+    @*TIENE ALGUNA INCOMPATIBILIDAD CON ALGUNA OTRA LIBRERIA*@
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- LO DE LA PLANTILLA -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Flex Admin - Responsive Admin Theme</title>
+
+    <!-- PACE LOAD BAR PLUGIN - This creates the subtle load bar effect at the top of the page. -->
+    <link href="~/css/plugins/pace/pace.css" rel="stylesheet">
+    <script src="~/js/plugins/pace/pace.js"></script>
+
+    <!-- GLOBAL STYLES - Include these on every page. -->
+    <link href="~/css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel="stylesheet" type="text/css">
+    <link href="~/icons/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+
+    <!-- THEME STYLES - Include these on every page. -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/plugins.css" rel="stylesheet">
+
+    <!-- THEME DEMO STYLES - Use these styles for reference if needed. Otherwise they can be deleted. -->
+    <link href="~/css/demo.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- begin TOP NAVIGATION -->
+        <nav class="navbar-top" role="navigation">
+
+            <!-- begin BRAND HEADING -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <i class="fa fa-bars"></i> Menu
+                </button>
+                <div class="navbar-brand">
+                    <a href="index.html">
+                        <img src="img/flex-admin-logo.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- end BRAND HEADING -->
+
+            <div class="nav-top">
+
+                <!-- begin LEFT SIDE WIDGETS -->
+                <ul class="nav navbar-left">
+                    <li class="tooltip-sidebar-toggle">
+                        <a href="#" id="sidebar-toggle" data-toggle="tooltip" data-placement="right" title="Sidebar Toggle">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                    <!-- You may add more widgets here using <li> -->
+                </ul>
+                <!-- end LEFT SIDE WIDGETS -->
+                <!-- begin MESSAGES/ALERTS/TASKS/USER ACTIONS DROPDOWNS -->
+                <ul class="nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>  <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="profile.html">
+                                    <i class="fa fa-user"></i> My Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailbox.html">
+                                    <i class="fa fa-envelope"></i> My Messages
+                                    <span class="badge green pull-right">4</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-bell"></i> My Alerts
+                                    <span class="badge orange pull-right">9</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-tasks"></i> My Tasks
+                                    <span class="badge blue pull-right">10</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="calendar.html">
+                                    <i class="fa fa-calendar"></i> My Calendar
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-gear"></i> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a class="logout_open" href="#logout">
+                                    <i class="fa fa-sign-out"></i> Logout
+                                    <strong>John Smith</strong>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-menu -->
+                    </li>
+                    <!-- /.dropdown -->
+                    <!-- end USER ACTIONS DROPDOWN -->
+
+                </ul>
+                <!-- /.nav -->
+                <!-- end MESSAGES/ALERTS/TASKS/USER ACTIONS DROPDOWNS -->
+
+            </div>
+            <!-- /.nav-top -->
+        </nav>
+        <!-- /.navbar-top -->
+        <!-- end TOP NAVIGATION -->
+        <!-- begin SIDE NAVIGATION -->
+        <nav class="navbar-side" role="navigation">
+            <div class="navbar-collapse sidebar-collapse collapse">
+                <ul id="side" class="nav navbar-nav side-nav">
+                    <!-- begin SIDE NAV USER PANEL -->
+                    <li class="side-user hidden-xs">
+                        <img class="img-circle" src="img/profile-pic.jpg" alt="">
+                        <p class="welcome">
+                            <i class="fa fa-key"></i> Logged in as
+                        </p>
+                        <p class="name tooltip-sidebar-logout">
+                            John
+                            <span class="last-name">Smith</span> <a style="color: inherit" class="logout_open" href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
+                        </p>
+                        <div class="clearfix"></div>
+                    </li>
+                    <!-- end SIDE NAV USER PANEL -->
+                    <!-- begin SIDE NAV SEARCH -->
+                    <li class="nav-search">
+                        <form role="form">
+                            <input type="search" class="form-control" placeholder="Search...">
+                            <button class="btn">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </li>
+                    <!-- end SIDE NAV SEARCH -->
+                    <!-- begin DASHBOARD LINK -->
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-dashboard"></i> Dashboard
+                        </a>
+                    </li>
+                    <!-- end DASHBOARD LINK -->
+                    <!-- begin CHARTS DROPDOWN -->
+                    <li class="panel">
+                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#charts">
+                            <i class="fa fa-bar-chart-o"></i> Charts <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="collapse nav" id="charts">
+                            <li>
+                                <a href="flot.html">
+                                    <i class="fa fa-angle-double-right"></i> Flot Charts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="morris.html">
+                                    <i class="fa fa-angle-double-right"></i> Morris.js
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end CHARTS DROPDOWN -->
+                    <!-- begin FORMS DROPDOWN -->
+                    <li class="panel">
+                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
+                            <i class="fa fa-edit"></i> Forms <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="collapse nav" id="forms">
+                            <li>
+                                <a href="basic-form-elements.html">
+                                    <i class="fa fa-angle-double-right"></i> Basic Elements
+                                </a>
+                            </li>
+                            <li>
+                                <a href="advanced-form-elements.html">
+                                    <i class="fa fa-angle-double-right"></i> Advanced Elements
+                                </a>
+                            </li>
+                            <li>
+                                <a href="validation.html">
+                                    <i class="fa fa-angle-double-right"></i> Validation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wysiwyg-editor.html">
+                                    <i class="fa fa-angle-double-right"></i> WYSIWYG Editor
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dropzone-uploader.html">
+                                    <i class="fa fa-angle-double-right"></i> Dropzone Uploader
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end FORMS DROPDOWN -->
+                    <!-- begin CALENDAR LINK -->
+                    <li>
+                        <a href="calendar.html">
+                            <i class="fa fa-calendar"></i> Calendar
+                        </a>
+                    </li>
+                    <!-- end CALENDAR LINK -->
+                    <!-- begin TABLES DROPDOWN -->
+                    <li class="panel">
+                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#tables">
+                            <i class="fa fa-table"></i> Tables <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="collapse nav" id="tables">
+                            <li>
+                                <a href="basic-tables.html">
+                                    <i class="fa fa-angle-double-right"></i> Basic Tables
+                                </a>
+                            </li>
+                            <li>
+                                <a href="advanced-tables.html">
+                                    <i class="fa fa-angle-double-right"></i> Advanced Tables
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end TABLES DROPDOWN -->
+                    <!-- begin UI ELEMENTS DROPDOWN -->
+                    <li class="panel">
+                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#ui-elements">
+                            <i class="fa fa-wrench"></i> UI Elements <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="collapse nav" id="ui-elements">
+                            <li>
+                                <a href="portlets.html">
+                                    <i class="fa fa-angle-double-right"></i> Portlets &amp; Widgets
+                                </a>
+                            </li>
+                            <li>
+                                <a href="buttons.html">
+                                    <i class="fa fa-angle-double-right"></i> Buttons
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tabs-accordions.html">
+                                    <i class="fa fa-angle-double-right"></i> Tabs &amp; Accordions
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notifications.html">
+                                    <i class="fa fa-angle-double-right"></i> Popups &amp; Notifications
+                                </a>
+                            </li>
+                            <li>
+                                <a href="sliders.html">
+                                    <i class="fa fa-angle-double-right"></i> Sliders
+                                </a>
+                            </li>
+                            <li>
+                                <a href="typography.html">
+                                    <i class="fa fa-angle-double-right"></i> Typography
+                                </a>
+                            </li>
+                            <li>
+                                <a href="icons.html">
+                                    <i class="fa fa-angle-double-right"></i> Icons
+                                </a>
+                            </li>
+                            <li>
+                                <a href="grid.html">
+                                    <i class="fa fa-angle-double-right"></i> Grid
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end UI ELEMENTS DROPDOWN -->
+                    <!-- begin MESSAGE CENTER DROPDOWN -->
+                    <li class="panel">
+                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#message-center">
+                            <i class="fa fa-inbox"></i> Message Center <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="collapse nav" id="message-center">
+                            <li>
+                                <a href="mailbox.html">
+                                    <i class="fa fa-angle-double-right"></i> Mailbox
+                                </a>
+                            </li>
+                            <li>
+                                <a href="compose-message.html">
+                                    <i class="fa fa-angle-double-right"></i> Compose Message
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <i class="fa fa-angle-double-right"></i> Chat
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end MESSAGE CENTER DROPDOWN -->
+                    <!-- begin PAGES DROPDOWN -->
+                    <li class="panel">
+                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#pages">
+                            <i class="fa fa-files-o"></i> Pages <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="collapse nav in" id="pages">
+                            <li>
+                                <a href="profile.html">
+                                    <i class="fa fa-angle-double-right"></i> User Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="invoice.html">
+                                    <i class="fa fa-angle-double-right"></i> Invoice
+                                </a>
+                            </li>
+                            <li>
+                                <a href="pricing.html">
+                                    <i class="fa fa-angle-double-right"></i> Pricing Tables
+                                </a>
+                            </li>
+                            <li>
+                                <a href="faq.html">
+                                    <i class="fa fa-angle-double-right"></i> FAQ Page
+                                </a>
+                            </li>
+                            <li>
+                                <a href="search-results.html">
+                                    <i class="fa fa-angle-double-right"></i> Search Results
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-angle-double-right"></i> Login Basic
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login-social.html">
+                                    <i class="fa fa-angle-double-right"></i> Login Social
+                                </a>
+                            </li>
+                            <li>
+                                <a href="404.html">
+                                    <i class="fa fa-angle-double-right"></i> 404 Error
+                                </a>
+                            </li>
+                            <li>
+                                <a href="500.html">
+                                    <i class="fa fa-angle-double-right"></i> 500 Error
+                                </a>
+                            </li>
+                            <li>
+                                <a class="active" href="blank.html">
+                                    <i class="fa fa-angle-double-right"></i> Blank Page
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end PAGES DROPDOWN -->
+                </ul>
+                <!-- /.side-nav -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <!-- /.navbar-side -->
+        <!-- end SIDE NAVIGATION -->
+        <!-- begin MAIN PAGE CONTENT -->
+        <div id="page-wrapper">
+
+            <div class="page-content">
+
+                <!-- begin PAGE TITLE ROW -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="page-title">
+                            <h1>
+                                Blank Page
+                                <small>For Customization</small>
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li>
+                                    <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                </li>
+                                <li class="active">Blank Page</li>
+                            </ol>
+                        </div>
+                        <div class="container">
+                            <main role="main" class="pb-3">
+                                @RenderBody()
+                            </main>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <!-- end PAGE TITLE ROW -->
+
+            </div>
+            <!-- /.page-content -->
+
+        </div>
+        <!-- /#page-wrapper -->
+        <!-- end MAIN PAGE CONTENT -->
+
+    </div>
+
+
+    <!-- /#wrapper -->
+    <!-- SUFRE DE ALGUNA INCOMPATIBILIDAD -->
+    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>-->
+    <!--<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>-->
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <!-- GLOBAL SCRIPTS -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="~/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/js/plugins/popupoverlay/jquery.popupoverlay.js"></script>
+    <script src="~/js/plugins/popupoverlay/defaults.js"></script>
+
+
+    <!-- HISRC Retina Images -->
+    <script src="~/js/plugins/hisrc/hisrc.js"></script>
+
+
+    <!-- THEME SCRIPTS -->
+    <script src="~/js/flex.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CrudNetCore5</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Libros" asp-action="Index">Libros</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - CrudNetCore5 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)*@
+</body>
+</html>
